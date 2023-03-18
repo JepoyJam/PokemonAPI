@@ -26,7 +26,7 @@ class UserResponseModel(BaseModel):
         
 class PokemonStatsResponseModel(BaseModel):
     height_m: Optional[float] = None
-    weight_kg: Optional[float] = None
+    weight_km: Optional[float] = None
     attack: Optional[int] = None
 
     class Config:
