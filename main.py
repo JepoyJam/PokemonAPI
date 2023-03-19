@@ -62,8 +62,8 @@ def uploadPokemonStats(pokemonStatsCSVFile: UploadFile, db : Session = Depends(g
     return {"message": "File uploaded successfully"}
 
 
-
-@app.get("/pokemon", response_model=List[PokemonResponseModel])
+# @app.get("/pokemon", response_model=List[PokemonResponseModel])
+@app.get("/pokemon")
 def getAllPokemons(db: Session = Depends(get_db)):
     # avoid n+1 problem with eager loading using subqueryload (will be discussed in the session remind me if I forget please :))
     pokemons  = db.query(models.Pokemon).options(subqueryload(models.Pokemon.stats)).all()
